@@ -15,7 +15,18 @@ class Unit
   end
 
   def attack!(unit)
+    return nil if self.dead? || unit.dead?
+    if self.is_a? SiegeEngine
+      return unit.damage(@attack_power*2) if unit.is_a? Building
+      return unit.damage(@attack_power*0) if !(unit.is_a? SiegeEngine)
+    end  
+    if self.is_a? Footman
+      return unit.damage(@attack_power*0.5) if unit.is_a? Building
+    end
     unit.damage(@attack_power)
   end  
 
+  def dead?
+    health_points <= 0
+  end  
 end

@@ -4,6 +4,7 @@
 require 'pry'
 require 'rspec'
 
+
 def safely_require(file)
   require_relative file
 rescue LoadError
@@ -12,5 +13,9 @@ end
 
 safely_require '../lib/unit'
 safely_require '../lib/footman'
-safely_require '../lib/barracks'
 safely_require '../lib/peasant'
+safely_require '../lib/building'
+safely_require '../lib/barracks'
+safely_require '../lib/siege_engine'
+
+
